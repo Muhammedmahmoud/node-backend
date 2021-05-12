@@ -7,11 +7,14 @@ const server = http.createServer(app);
 const port = process.env.PORT || 3000
 
 const io = require('socket.io')(server, {
-    cors: {
-         origin: "http://localhost:8888",
-         methods: ["GET", "POST"]
-
-    }
+   cors: {
+           /* origin: "http://localhost:8080",
+            methods: ["GET", "POST"]*/
+            origin: "http://34.121.91.100",
+            methods: ["GET", "POST"],
+            allowedHeaders: ["my-custom-header"],
+            credentials: true
+        }
 });
 
 io.on('connection', (socket) => {
