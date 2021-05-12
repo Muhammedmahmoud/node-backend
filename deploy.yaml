@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: node-backend-app
-        image: gcr.io/secure-current-313023/app:v1
+        image: gcr.io/secure-current-313023/node-backend:v1
         ports:
         - containerPort: 3000
         env:
