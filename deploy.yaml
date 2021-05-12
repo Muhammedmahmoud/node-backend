@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app-deployment
+  name: node-backend-deployment
 spec:
   selector:
     matchLabels:
-      app: my-app
+      app: node-backend-app
   replicas: 1
   template:
     metadata:
       labels:
-        app: my-app
+        app: node-backend-app
         env: development
     spec:
       containers:
-      - name: my-app
+      - name: node-backend-app
         image: gcr.io/secure-current-313023/app:v1
         ports:
         - containerPort: 3000
@@ -29,7 +29,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-app-service
+  name: node-backend-service
 spec:
   type: LoadBalancer
   ports:
@@ -37,4 +37,4 @@ spec:
     targetPort: 3000
     protocol: TCP
   selector:
-    app: my-app
+    app: node-backend-app
